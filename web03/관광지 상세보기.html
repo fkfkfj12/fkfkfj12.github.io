@@ -1,0 +1,353 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>장소 상세보기</title>
+    
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<style>
+body, html { font-family: 'Noto Sans KR', sans-serif; }
+.table { min-width:960px; }
+#logo2 { display:block; width:73px; height:67px; background-color:white; background-image:url("/pro03/data/logo.png");
+background-size:85% auto; background-repeat:no-repeat; background-position:center center; }
+#nav-group { border-bottom:3px solid #ddd; }
+#gnb .navbar-link::after { content:""; display:none; }
+#sidebar .navbar { display:block; width:100%; background-color:transparent; }
+#sidebar .navbar-item { float:none; clear:both; display:block; width:100%; }
+#frm1.search_form { border-top:2px solid #ddd; border-bottom:2px solid #ddd; height:60px; padding-top:10px; padding-bottom:10px;  }
+#frm1 .inline { width:70%; float:left; margin-right:2%; }
+#frm1.search_form .inline { display:inline-block; width:auto; } 
+.navbar-item.has-dropdown.is-hoverable { min-width:110px; position:static; }
+.navbar-item.has-dropdown.is-hoverable a { font-weight:800; }
+.navbar-item.has-dropdown.is-hoverable.single { position:relative; }
+#nav .navbar-dropdown.cate { min-width:940px; width:940px; position:absolute; left:50px; }
+#nav .navbar-dropdown.single { min-width:150px; width:150px; left:auto; top:68px; }
+#nav .navbar-dropdown.cate a { display:inline-block; padding:8px; margin-right:20px;  
+width:120px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; 
+font-weight:500; }
+#nav .navbar-dropdown.single a { display:inline-block; width:150px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; 
+font-weight:500; }
+p.title { font-size:1.4rem; }
+p.subtitle { font-size:1.1rem; }
+.item_com {   overflow: hidden;  text-overflow: ellipsis;  display: -webkit-box;
+  -webkit-line-clamp: 3;  -webkit-box-orient: vertical; font-size:0.9rem; }
+.breadcrumb ul li:last-child { padding-right:1.5rem; }
+p.comment2 { max-width:400px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; 
+max-height:40px; }
+.hidden_item { display:none; }
+.star_data { height:36px; position:relative; background-image:url("/pro03/data/star.png"); 
+background-repeat:no-repeat; background-position:left center; background-size:100px auto; }
+#star_group { width:100px; height:36px; position:relative; }
+#star_group #stardate { width:100px; height:36px; background-image:url("/pro03/data/star1.png"); 
+background-repeat:no-repeat; background-position:left center; background-size:100px auto; }
+#star_group #starrate { width:100px; height:36px; background-image:url("/pro03/data/star.png"); 
+background-repeat:no-repeat; background-position:left center; background-size:100px auto; }
+#star10:checked ~ #star_group #starrate { width:100px; }
+#star9:checked ~ #star_group #starrate { width:90px; }
+#star8:checked ~ #star_group #starrate { width:80px; }
+#star7:checked ~ #star_group #starrate { width:70px; }
+#star6:checked ~ #star_group #starrate { width:60px; }
+#star5:checked ~ #star_group #starrate { width:50px; }
+#star4:checked ~ #star_group #starrate { width:40px; }
+#star3:checked ~ #star_group #starrate { width:30px; }
+#star2:checked ~ #star_group #starrate { width:20px; }
+#star1:checked ~ #star_group #starrate { width:10px; }
+#star_btn { width:100px; height:36px; position:absolute; z-index:20; top:0; left:0;  }
+#star_btn label { display:block; width:10px; height:36px; position:relative; float:left; }
+</style>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+  </head>
+  <body>
+  
+
+ 
+<div id="nav-group">
+	<div class="container"> 
+		<nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
+		  <div class="navbar-brand">
+		    <a class="navbar-item" id="logo2" href="/pro03/">
+		    </a>
+		
+		    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+		      <span aria-hidden="true"></span>
+		      <span aria-hidden="true"></span>
+		      <span aria-hidden="true"></span>
+		    </a>
+		  </div>
+		
+		  <div id="navbarBasicExample" class="navbar-menu">
+		    <div class="navbar-start" id="gnb">
+		    	<!-- ajax로 메뉴 로딩하여 추가하기 -->
+				<div class="navbar-item has-dropdown is-hoverable">
+			    	<a href="/pro03/GetTourCateListCtrl.do?cate=A" class="navbar-link" >
+				      	명소관광
+				    </a>
+				    <div class="navbar-dropdown cate" id="cate01">
+				    
+				    </div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+			    	<a href="/pro03/GetTourCateListCtrl.do?cate=B" class="navbar-link cate">
+				      	체험관광
+				    </a> 
+		   		    <div class="navbar-dropdown cate" id="cate02">
+				    
+				    </div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+			    	<a href="/pro03/GetTourCateListCtrl.do?cate=C" class="navbar-link cate">
+				      	문화체험
+				    </a>
+		   		    <div class="navbar-dropdown cate" id="cate03">
+				    
+				    </div>
+				</div>
+				<div class="navbar-item has-dropdown is-hoverable">
+			    	<a href="/pro03/GetTourCateListCtrl.do?cate=D" class="navbar-link cate">
+				      	음식
+				    </a>
+		    		<div class="navbar-dropdown cate" id="cate04">
+				    
+				    </div>
+				</div>
+				
+				
+				<div class="navbar-item has-dropdown is-hoverable single">
+			    	<a class="navbar-link">
+				      	게시판
+				    </a>
+					<div class="navbar-dropdown single">
+					
+					     <a class="navbar-item" href="/pro03/GetNoticeListCtrl.do">
+					       	공지사항
+					     </a>
+					   
+					     <a class="navbar-item" href="/pro03/GetNoticeListCtrl2.do">
+					       	자주하는 질문
+					     </a>
+					</div> 
+				</div>
+				
+			</div>
+			
+			<div class="navbar-end" id="tnb">
+			  <div class="navbar-item">
+			  	
+			
+			 <div class="buttons">
+			   <a href="/pro03/UserInfoCtrl.do" class="button is-primary">
+			     <strong>Member Info</strong>
+			   </a>
+			   <a href="/pro03/UserLogoutCtrl.do" class="button is-light">
+			     LogOut
+			   </a>
+				
+				   <a href="/pro03/AdminCtrl.do" class="button is-danger">
+				     <strong>Admin</strong>
+				   </a>
+				 
+			 </div>
+			
+		  </div>
+		</div>
+		  </div>
+		</nav>
+	<script>
+	$(document).ready(function(){
+		$.ajax({
+			url:"/pro03/MemuLoadCtrl.do",
+			type:"POST",
+			enctype:"UTF-8",
+			datatype:"json",
+			processData:false,
+			contentType:false, 
+			cache:false,
+			success:function(data){
+				$(".navbar-dropdown.cate").empty();
+				var trans = $.parseJSON(data);
+				console.log(trans);
+				$.each(trans, function(key, value){
+					if(key=="data"){
+						for(var i=0;i<value.length;i++){
+							if(value[i].cate=="A"){
+								$("#cate01").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="B"){
+								$("#cate02").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="C"){
+								$("#cate03").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="D"){
+								$("#cate04").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="E"){
+								$("#cate05").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="F"){
+								$("#cate06").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="G"){
+								$("#cate07").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							}
+						}
+					}
+				});
+				
+			}
+		});
+	});
+	</script>
+	</div>
+</div>
+	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
+	  <ul style="float:right;">
+	    <li><a href="/pro03/">Home</a></li>
+	    <li><a href="/pro03/GetTourListCtrl.do">전체 장소</a></li>
+	    <li><a href="/pro03/GetTourCateListCtrl.do?cate=A">
+ 			 
+			
+			<span>관광</span>
+			
+			
+			
+			
+			
+			
+			
+			
+	    </a></li>
+	    <li class="is-active"><a href="#" aria-current="page">Happy 초원목장</a></li>
+	  </ul>
+	</nav>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">장소 상세보기</h1>
+      	<div id="con">
+      		<table class="table">
+      			
+				
+			    <tr>
+			    	<td>해당 이미지가 없습니다.</td>
+			    </tr>
+			    
+		  </tbody>
+		</table>
+      	</div>
+		<table class="table">
+		   <tbody>
+		    <tr>
+		      <th style="min-width:180px;">번호</th>
+		      <td>5</td>
+		    </tr>
+		    <tr>
+		      <th>분류</th>
+		      <td>
+   				 
+				
+				<span>관광</span>
+				
+				
+				
+				
+				
+				
+				
+				
+		      </td>
+		    </tr>
+		    <tr>
+		      <th>장소 번호</th>
+		      <td><p>A0006</p>
+		      	<input type="hidden" name="tourno" id="tourno" value="A0006" />
+		      </td>
+		    </tr>
+		    <tr> 
+		      <th>장소명</th>
+		      <td>
+				Happy 초원목장
+		      </td>	
+		    </tr>
+		    <tr>
+		      <th>장소 주요 설명</th>
+		      <td><p>7만평의 초지에 한우를 방목하여 키우고 있는 하이록한우 체험농장으로 강원 청정 하이록한우의 우수성과 안정성을 알리기 위해 강원도와 춘천, 화천, 양구, 인제, 철원 5개 시군에 의해 지정운영되고 있는 개인 목장으로 아이들에게는 자연 속에서 동물들과 함께 마음껏 뛰어놀며 바르게 이해 할 수 있는 농촌체험 교육농장으로도 운영되고 있다. </p></td>
+		    </tr>
+		    <tr>
+		      <th>장소 상세 설명</th>
+		      <td><p>휴무일	연중개방
+이용시간	하절기 08:00~19:00 / 동절기 08:00~17:00
+입장료	일반 4,000원 / 경로 2,000원 / 장애인 2,000원
+시설사용요금	3,000~120,000원
+주차시설	없음
+주차요금	없음
+장애인 편의시설	없음
+관광가이드	이 농장은 모두 25ha에 이르는 초지에 한우를 비롯한 다양한 동물들을 방목하며, 체험객들은 동물에 먹이를 주고 만져보는 체험을 할 수 있다. 이곳에서 길러지는 한우는 영서 지역 5개 시·군의 한우 연합 브랜드 하이록이다. 목장에서는 각각 30마리 규모의 한우와 양을 방목 중이다. 당나귀와 꿩 토끼 등도 있다. 대관령 양떼목장처럼 동물에게 먹이를 주는 등 체험을 할 수 있다. 높은 고도의 초지에서 춘천호를 바라보는 등 탁 트인 전망도 갖추고 있다.
+핵심내용	이색적인 체험농장
+홈페이지	http://www.happyhilok.co.kr/</p></td>
+		    </tr>
+		  </tbody>
+		</table>
+		<div class="buttons">
+		  <a href="/pro03/GetTourListCtrl.do" class="button is-info">전체 목록</a>
+		  <a href="/pro03/GetTourCateListCtrl.do?cate=A" class="button is-info">카테고리 목록</a>
+		  
+			  <a href="/pro03/DelTourCtrl.do?no=5" class="button is-danger">장소 삭제</a>
+			  <a href="/pro03/ModifyTourCtrl.do?no=5" class="button is-warning">장소 수정</a>
+		  
+		</div>
+    </div>
+  </section>
+  <script>
+  //image Lazy Loading : 실제로 사용자 화면에 보여질 필요가 있을 때까지 이미지 로딩을 지연하는 것으로 네트워크 대역폭을 줄이는 방법
+  /* document.addEventListener("DOMContentLoaded", function() {
+	  var lazyloadImages = document.querySelectorAll("img.lazy");    
+	  var lazyloadThrottleTimeout;
+	  
+	  function lazyload () {
+	    if(lazyloadThrottleTimeout) {
+	      clearTimeout(lazyloadThrottleTimeout);
+	    }    
+	    
+	    lazyloadThrottleTimeout = setTimeout(function() {
+	        var scrollTop = window.pageYOffset;
+	        lazyloadImages.forEach(function(img) {
+	            if(img.offsetTop < (window.innerHeight + scrollTop)) {
+	              img.src = img.dataset.src;
+	              img.classList.remove('lazy');
+	            }
+	        });
+	        if(lazyloadImages.length == 0) { 
+	          document.removeEventListener("scroll", lazyload);
+	          window.removeEventListener("resize", lazyload);
+	          window.removeEventListener("orientationChange", lazyload);
+	        }
+	    }, 20);
+	  }
+	  
+	  document.addEventListener("scroll", lazyload);
+	  window.addEventListener("resize", lazyload);
+	  window.addEventListener("orientationChange", lazyload);
+	}); */
+  </script>
+	
+  
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+      is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
