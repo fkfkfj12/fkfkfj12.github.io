@@ -11,7 +11,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>장소 상세보기</title>
+    <title>공지사항 상세보기</title>
     
 
 
@@ -74,11 +74,13 @@ background-repeat:no-repeat; background-position:left center; background-size:10
   </head>
   <body>
   
+<div id="nav-group">
+	<div class="container">
 
  
 	<nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
 		<div class="navbar-brand">
-		  <a class="navbar-item" id="logo2" href="/pro03/">
+		  <a class="navbar-item" id="logo2" href="/jbj/frontend/web03/index.html">
 		  <img src="/logo.png">
 		  </a>
 	  
@@ -153,165 +155,44 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 	  </div>
 		</div>
 	  </nav>
-	<script>
-	$(document).ready(function(){
-		$.ajax({
-			url:"/pro03/MemuLoadCtrl.do",
-			type:"POST",
-			enctype:"UTF-8",
-			datatype:"json",
-			processData:false,
-			contentType:false, 
-			cache:false,
-			success:function(data){
-				$(".navbar-dropdown.cate").empty();
-				var trans = $.parseJSON(data);
-				console.log(trans);
-				$.each(trans, function(key, value){
-					if(key=="data"){
-						for(var i=0;i<value.length;i++){
-							if(value[i].cate=="A"){
-								$("#cate01").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="B"){
-								$("#cate02").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="C"){
-								$("#cate03").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="D"){
-								$("#cate04").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="E"){
-								$("#cate05").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="F"){
-								$("#cate06").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="G"){
-								$("#cate07").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							}
-						}
-					}
-				});
-				
-			}
-		});
-	});
-	</script>
 	</div>
 </div>
-	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
-	  <ul style="float:right;">
-	    <li><a href="/pro03/">Home</a></li>
-	    <li><a href="/pro03/GetTourListCtrl.do">전체 장소</a></li>
-	    <li><a href="/pro03/GetTourCateListCtrl.do?cate=A">
- 			 
-			
-			<span>관광</span>
-			
-			
-			
-			
-			
-	    </a></li>
-	    <li class="is-active"><a href="#" aria-current="page">관광지1</a></li>
-	  </ul>
-	</nav>
   <section class="section">
     <div class="container">
-      <h1 class="title">장소 상세보기</h1>
-      	<div id="con">
-      		<table class="table">
-      			
-      			<tr>
-				
-				<td>
-					<img src="upload/1.jpg" class="lazy" onerror="this.style.display='none'" alt="배너" />
-					<!-- onerror="this.style.display='none'"  -->
-	      		</td>
-					
-		    	</tr>
-		    	
-				
-		  </tbody>
-		</table>
-      	</div>
+      <h1 class="title">공지사항 상세보기</h1>
 		<table class="table">
 		   <tbody>
 		    <tr>
-		      <th style="min-width:180px;">번호</th>
-		      <td>15</td>
+		      <th>번호</th>
+		      <td>9</td>
 		    </tr>
 		    <tr>
-		      <th>분류</th>
-		      <td>
-   				 
-				
-				<span>관광</span>
-				
-				
-				
-				
-				
-		      </td>
+		      <th>제목</th>
+		      <td>123</td>
 		    </tr>
 		    <tr>
-		      <th>장소 번호</th>
-		      <td><p>A0001</p>
-		      	<input type="hidden" name="tourno" id="tourno" value="A0001" />
-		      </td>
+		      <th>내용</th>
+		      <td><p>123</p></td>
 		    </tr>
 		    <tr> 
-		      <th>장소명</th>
+		      <th>작성일</th>
 		      <td>
-				관광지1
-		      </td>	
+		      	
+		      	2022-11-22
+		      </td>
 		    </tr>
 		    <tr>
-		      <th>장소 주요 설명</th>
-		      <td><p>관광지1</p></td>
-		    </tr>
-		    <tr>
-		      <th>장소 상세 설명</th>
-		      <td><p>관광지 1</p></td>
+		      <th>읽은 횟수</th>
+		      <td><p>6</p></td>
 		    </tr>
 		  </tbody>
 		</table>
 		<div class="buttons">
-		  <a href="/pro03/GetTourListCtrl.do" class="button is-info">전체 목록</a>
-		  <a href="/pro03/GetTourCateListCtrl.do?cate=A" class="button is-info">카테고리 목록</a>
-		  
-		</div>
+			<a href="/jbj/frontend/web03/noticelist.html" class="button is-info">목록</a>
+			
+		  </div>
     </div>
   </section>
-  <script>
-  //image Lazy Loading : 실제로 사용자 화면에 보여질 필요가 있을 때까지 이미지 로딩을 지연하는 것으로 네트워크 대역폭을 줄이는 방법
-  /* document.addEventListener("DOMContentLoaded", function() {
-	  var lazyloadImages = document.querySelectorAll("img.lazy");    
-	  var lazyloadThrottleTimeout;
-	  
-	  function lazyload () {
-	    if(lazyloadThrottleTimeout) {
-	      clearTimeout(lazyloadThrottleTimeout);
-	    }    
-	    
-	    lazyloadThrottleTimeout = setTimeout(function() {
-	        var scrollTop = window.pageYOffset;
-	        lazyloadImages.forEach(function(img) {
-	            if(img.offsetTop < (window.innerHeight + scrollTop)) {
-	              img.src = img.dataset.src;
-	              img.classList.remove('lazy');
-	            }
-	        });
-	        if(lazyloadImages.length == 0) { 
-	          document.removeEventListener("scroll", lazyload);
-	          window.removeEventListener("resize", lazyload);
-	          window.removeEventListener("orientationChange", lazyload);
-	        }
-	    }, 20);
-	  }
-	  
-	  document.addEventListener("scroll", lazyload);
-	  window.addEventListener("resize", lazyload);
-	  window.addEventListener("orientationChange", lazyload);
-	}); */
-  </script>
-	
   
 <footer class="footer">
   <div class="content has-text-centered">

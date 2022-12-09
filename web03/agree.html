@@ -78,11 +78,13 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 </head>
 <body>
 
+	<div id="nav-group">
+		<div class="container">
 
  
 	<nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
 		<div class="navbar-brand">
-		  <a class="navbar-item" id="logo2" href="/pro03/">
+			<a class="navbar-item" id="logo2" href="/jbj/frontend/web03/index.html">
 		  <img src="/logo.png">
 		  </a>
 	  
@@ -157,46 +159,6 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 	  </div>
 		</div>
 	  </nav>
-	<script>
-	$(document).ready(function(){
-		$.ajax({
-			url:"/pro03/MemuLoadCtrl.do",
-			type:"POST",
-			enctype:"UTF-8",
-			datatype:"json",
-			processData:false,
-			contentType:false, 
-			cache:false,
-			success:function(data){
-				$(".navbar-dropdown.cate").empty();
-				var trans = $.parseJSON(data);
-				console.log(trans);
-				$.each(trans, function(key, value){
-					if(key=="data"){
-						for(var i=0;i<value.length;i++){
-							if(value[i].cate=="A"){
-								$("#cate01").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="B"){
-								$("#cate02").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="C"){
-								$("#cate03").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="D"){
-								$("#cate04").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="E"){
-								$("#cate05").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="F"){
-								$("#cate06").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="G"){
-								$("#cate07").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							}
-						}
-					}
-				});
-				
-			}
-		});
-	});
-	</script>
 	</div>
 </div>
 <div class="content container" id="content">

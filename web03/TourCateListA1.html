@@ -74,11 +74,13 @@ background-repeat:no-repeat; background-position:left center; background-size:10
   </head>
   <body>
   
+<div id="nav-group">
+	<div class="container">
 
  
 	<nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
 		<div class="navbar-brand">
-		  <a class="navbar-item" id="logo2" href="/pro03/">
+		  <a class="navbar-item" id="logo2" href="/jbj/frontend/web03/index.html">
 		  <img src="/logo.png">
 		  </a>
 	  
@@ -153,63 +155,24 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 	  </div>
 		</div>
 	  </nav>
-	<script>
-	$(document).ready(function(){
-		$.ajax({
-			url:"/pro03/MemuLoadCtrl.do",
-			type:"POST",
-			enctype:"UTF-8",
-			datatype:"json",
-			processData:false,
-			contentType:false, 
-			cache:false,
-			success:function(data){
-				$(".navbar-dropdown.cate").empty();
-				var trans = $.parseJSON(data);
-				console.log(trans);
-				$.each(trans, function(key, value){
-					if(key=="data"){
-						for(var i=0;i<value.length;i++){
-							if(value[i].cate=="A"){
-								$("#cate01").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="B"){
-								$("#cate02").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="C"){
-								$("#cate03").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="D"){
-								$("#cate04").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="E"){
-								$("#cate05").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="F"){
-								$("#cate06").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							} else if(value[i].cate=="G"){
-								$("#cate07").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
-							}
-						}
-					}
-				});
-				
-			}
-		});
-	});
-	</script>
+
 	</div>
 </div>
 	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
 	  <ul style="float:right;">
 	    <li><a href="/pro03/">Home</a></li>
 	    <li><a href="/pro03/GetTourListCtrl.do">전체 장소</a></li>
-	    <li><a href="/pro03/GetTourCateListCtrl.do?cate=B">
+	    <li><a href="/pro03/GetTourCateListCtrl.do?cate=A">
  			 
 			
+			<span>관광</span>
 			
-			<span>체험</span>
 			
 			
 			
 			
 	    </a></li>
-	    <li class="is-active"><a href="#" aria-current="page">체험1</a></li>
+	    <li class="is-active"><a href="#" aria-current="page">관광지1</a></li>
 	  </ul>
 	</nav>
   <section class="section">
@@ -221,7 +184,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
       			<tr>
 				
 				<td>
-					<img src="upload/3.jpg" class="lazy" onerror="this.style.display='none'" alt="배너" />
+					<img src="upload/1.jpg" class="lazy" onerror="this.style.display='none'" alt="배너" />
 					<!-- onerror="this.style.display='none'"  -->
 	      		</td>
 					
@@ -235,15 +198,15 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		   <tbody>
 		    <tr>
 		      <th style="min-width:180px;">번호</th>
-		      <td>17</td>
+		      <td>15</td>
 		    </tr>
 		    <tr>
 		      <th>분류</th>
 		      <td>
    				 
 				
+				<span>관광</span>
 				
-				<span>체험</span>
 				
 				
 				
@@ -252,31 +215,31 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		    </tr>
 		    <tr>
 		      <th>장소 번호</th>
-		      <td><p>B0017</p>
-		      	<input type="hidden" name="tourno" id="tourno" value="B0017" />
+		      <td><p>A0001</p>
+		      	<input type="hidden" name="tourno" id="tourno" value="A0001" />
 		      </td>
 		    </tr>
 		    <tr> 
 		      <th>장소명</th>
 		      <td>
-				체험1
+				관광지1
 		      </td>	
 		    </tr>
 		    <tr>
 		      <th>장소 주요 설명</th>
-		      <td><p>체험1</p></td>
+		      <td><p>관광지1</p></td>
 		    </tr>
 		    <tr>
 		      <th>장소 상세 설명</th>
-		      <td><p>체험1</p></td>
+		      <td><p>관광지 1</p></td>
 		    </tr>
 		  </tbody>
 		</table>
 		<div class="buttons">
-			<a href="/jbj/frontend/web03/tourlist.html" class="button is-info">전체 목록</a>
-			<a href="/jbj/frontend/web03/CateB.html" class="button is-info">카테고리 목록</a>
-			
-		  </div>
+		  <a href="/jbj/frontend/web03/tourlist.html" class="button is-info">전체 목록</a>
+		  <a href="/jbj/frontend/web03/TourCateListA.html" class="button is-info">카테고리 목록</a>
+		  
+		</div>
     </div>
   </section>
   <script>
