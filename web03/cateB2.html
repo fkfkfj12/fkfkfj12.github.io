@@ -8,11 +8,11 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>회원 정보 수정</title>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>장소 상세보기</title>
+    
 
 
 
@@ -71,13 +71,9 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 #star_btn label { display:block; width:10px; height:36px; position:relative; float:left; }
 </style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-<style>
-.title { padding-top:36px; padding-bottom:20px; }
-#id { width:780px; float:left; margin-right:30px; margin-left:6px; }
-</style>
-</head>
-<body>
-
+  </head>
+  <body>
+  
 
  
 <div id="nav-group">
@@ -85,6 +81,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		<nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
 		  <div class="navbar-brand">
 		    <a class="navbar-item" id="logo2" href="/pro03/">
+		    <img src="/logo.png">
 		    </a>
 		
 		    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -99,7 +96,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		    	<!-- ajax로 메뉴 로딩하여 추가하기 -->
 				<div class="navbar-item has-dropdown is-hoverable">
 			    	<a href="/pro03/GetTourCateListCtrl.do?cate=A" class="navbar-link" >
-				      	명소관광
+				      	관광
 				    </a>
 				    <div class="navbar-dropdown cate" id="cate01">
 				    
@@ -107,7 +104,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable">
 			    	<a href="/pro03/GetTourCateListCtrl.do?cate=B" class="navbar-link cate">
-				      	체험관광
+				      	체험
 				    </a> 
 		   		    <div class="navbar-dropdown cate" id="cate02">
 				    
@@ -115,7 +112,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable">
 			    	<a href="/pro03/GetTourCateListCtrl.do?cate=C" class="navbar-link cate">
-				      	문화체험
+				      	문화
 				    </a>
 		   		    <div class="navbar-dropdown cate" id="cate03">
 				    
@@ -141,7 +138,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 					       	공지사항
 					     </a>
 					   
-					     <a class="navbar-item" href="/pro03/GetNoticeListCtrl2.do">
+					     <a class="navbar-item" href="/pro03/GetQnaListCtrl.do">
 					       	자주하는 질문
 					     </a>
 					</div> 
@@ -152,20 +149,15 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 			<div class="navbar-end" id="tnb">
 			  <div class="navbar-item">
 			  	
-			
 			 <div class="buttons">
-			   <a href="/pro03/UserInfoCtrl.do" class="button is-primary">
-			     <strong>Member Info</strong>
+			   <a href="/pro03/user/agree.jsp" class="button is-primary">
+			     <strong>Sign up</strong>
 			   </a>
-			   <a href="/pro03/UserLogoutCtrl.do" class="button is-light">
-			     LogOut
+			   <a href="/pro03/user/login.jsp" class="button is-light">
+			     Log in
 			   </a>
-				
-				   <a href="/pro03/AdminCtrl.do" class="button is-danger">
-				     <strong>Admin</strong>
-				   </a>
-				 
 			 </div>
+			
 			
 		  </div>
 		</div>
@@ -213,148 +205,124 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 	</script>
 	</div>
 </div>
-	<section class="section">
-	    <div class="columns is-full">
-			    
-
-
-
-
-
-<aside class="column is-2 has-background-primary-dark has-text-white" style="min-height:90vh" id="sidebar">
-	<div class="navbar-menu">
-		<div class="navbar">
-			<a href="/pro03/GetUserListCtrl.do" class="navbar-item">회원관리</a>
-			<a href="/pro03/tour/addTour.jsp" class="navbar-item">장소관리</a>
-			<a href="/pro03/GetTourListCtrl.do" class="navbar-item">장소목록</a>
-		</div>
-	</div>
-</aside>
-			<div class="column is-10">
-				<h2 class="title">회원 정보 확인 및 수정</h2>
-				<form name="frm1" id="frm1" action="/pro03/UserUpdateCtrl.do" method="post" onsubmit="return joinCheck(this)">
-					<table class="table">
-						<tbody>
-							<tr>
-								<th>아이디</th>
-								<td>
-									<div class="form-row">
-										<input type="text" name="id" id="id" placeholder="아이디 입력" value="a123456789" class="input" readonly required />
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>비밀번호</th>
-								<td><input type="password" name="pw" id="pw" placeholder="비밀번호 입력" value="a123456789!" class="input" required /></td>
-							</tr>
-							<tr>
-								<th>비밀번호 확인</th>
-								<td><input type="password" name="pw2" id="pw2" placeholder="비밀번호  확인 입력" value="a123456789!" class="input" required /></td>
-							</tr>
-							<tr>
-								<th>회원이름</th>
-								<td><input type="text" name="name" id="name" placeholder="이름 입력" value="1234" class="input" required /></td>
-							</tr>
-							<tr>
-								<th>이메일</th>
-								<td><input type="email" name="email" id="email" placeholder="이메일 입력" value="1234@naver.com" class="input" required></td>
-							</tr>
-							<tr>
-								<th>생년월일</th>
-								<td>
-					      			
-					      			
-									<input type="date" name="birth" id="birth" placeholder="생년월일 입력" value="2022-11-08" class="input" required>
-								</td>
-							</tr>
-							<tr>
-								<th>연락처</th>
-								<td><input type="tel" name="tel" id="tel" placeholder="전화번호 숫자만 입력 00000000000" class="input" value="12312341234" required></td>
-							</tr>
-							<tr>
-								<th>가입일</th>
-								<td>2022-11-22 16:53:51.0</td>
-							</tr>
-							<tr>
-								<th>회원등급</th>
-								<td>
-									 
-									
-									
-									
-									
-									
-									
-									<span>준회원</span>
-									
-									<input type="hidden" name="grade" id="grade" value="F" />	
-								</td>
-							</tr>
-							<tr>
-								<th>회원 포인트</th>
-								<td>0</td>
-							</tr>
-							<tr>
-								<th>방문 횟수</th>
-								<td>2</td>
-							</tr>
-							<tr>
-								<th>주소</th>
-								<td>
-								<h3>
-									현재 주소 : 충북 청주시 서원구 1순환로 632<br>1234
-								</h3>
-								<input type="hidden" name="addr" id="addr" value="충북 청주시 서원구 1순환로 632<br>1234" />
-								<h3>변경할 주소 <span style="color:red">변경시에만 입력하시오.</span></h3>
-								<input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="input" required /><br>
-								<input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="input" required /><br>
-								<input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" class="input">
-								<button id="post_btn" onclick="findAddr()" class="button is-info">우편번호 검색</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="btn-group">
-						<input type="submit" name="submit-btn" class="button is-danger" value="회원정보변경">
-						<a href="/pro03" class="button is-info">취소</a>
-					</div>
-				</form>	
-				<script>
-				function joinCheck(f){
-					if(f.pw.value!=f.pw2.value){
-						alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
-						f.pw.focus();
-						return false;
-					}
-					if(f.idck.value!="yes"){
-						alert("아이디 중복 체크를 하지 않으셨습니다.");
-						return false;
-					}
-				}
-				</script>
-				<script>
-				function findAddr() {
-					new daum.Postcode({
-						oncomplete: function(data) {
-							console.log(data);
-							var roadAddr = data.roadAddress;
-							var jibunAddr = data.jibunAddress;
-							document.getElementById("postcode").value = data.zonecode;
-							if(roadAddr !== '') {
-								document.getElementById("address1").value = roadAddr;				
-							} else if(jibunAddr !== ''){
-								document.getElementById("address1").value = jibunAddr;
-							}
-							document.getElementById("address2").focus();
-						}
-					}).open();
-				}
-				</script>
-				<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-			</div>
-		</div>	
-	</section>
-
+	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
+	  <ul style="float:right;">
+	    <li><a href="/pro03/">Home</a></li>
+	    <li><a href="/pro03/GetTourListCtrl.do">전체 장소</a></li>
+	    <li><a href="/pro03/GetTourCateListCtrl.do?cate=B">
+ 			 
+			
+			
+			<span>체험</span>
+			
+			
+			
+			
+	    </a></li>
+	    <li class="is-active"><a href="#" aria-current="page">체험2</a></li>
+	  </ul>
+	</nav>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">장소 상세보기</h1>
+      	<div id="con">
+      		<table class="table">
+      			
+      			<tr>
+				
+				<td>
+					<img src="upload/4.jpg" class="lazy" onerror="this.style.display='none'" alt="배너" />
+					<!-- onerror="this.style.display='none'"  -->
+	      		</td>
+					
+		    	</tr>
+		    	
+				
+		  </tbody>
+		</table>
+      	</div>
+		<table class="table">
+		   <tbody>
+		    <tr>
+		      <th style="min-width:180px;">번호</th>
+		      <td>18</td>
+		    </tr>
+		    <tr>
+		      <th>분류</th>
+		      <td>
+   				 
+				
+				
+				<span>체험</span>
+				
+				
+				
+				
+		      </td>
+		    </tr>
+		    <tr>
+		      <th>장소 번호</th>
+		      <td><p>B0018</p>
+		      	<input type="hidden" name="tourno" id="tourno" value="B0018" />
+		      </td>
+		    </tr>
+		    <tr> 
+		      <th>장소명</th>
+		      <td>
+				체험2
+		      </td>	
+		    </tr>
+		    <tr>
+		      <th>장소 주요 설명</th>
+		      <td><p>체험2</p></td>
+		    </tr>
+		    <tr>
+		      <th>장소 상세 설명</th>
+		      <td><p>체험2</p></td>
+		    </tr>
+		  </tbody>
+		</table>
+		<div class="buttons">
+			<a href="/jbj/frontend/web03/tourlist.html" class="button is-info">전체 목록</a>
+			<a href="/jbj/frontend/web03/CateB.html" class="button is-info">카테고리 목록</a>
+			
+		  </div>
+    </div>
+  </section>
+  <script>
+  //image Lazy Loading : 실제로 사용자 화면에 보여질 필요가 있을 때까지 이미지 로딩을 지연하는 것으로 네트워크 대역폭을 줄이는 방법
+  /* document.addEventListener("DOMContentLoaded", function() {
+	  var lazyloadImages = document.querySelectorAll("img.lazy");    
+	  var lazyloadThrottleTimeout;
+	  
+	  function lazyload () {
+	    if(lazyloadThrottleTimeout) {
+	      clearTimeout(lazyloadThrottleTimeout);
+	    }    
+	    
+	    lazyloadThrottleTimeout = setTimeout(function() {
+	        var scrollTop = window.pageYOffset;
+	        lazyloadImages.forEach(function(img) {
+	            if(img.offsetTop < (window.innerHeight + scrollTop)) {
+	              img.src = img.dataset.src;
+	              img.classList.remove('lazy');
+	            }
+	        });
+	        if(lazyloadImages.length == 0) { 
+	          document.removeEventListener("scroll", lazyload);
+	          window.removeEventListener("resize", lazyload);
+	          window.removeEventListener("orientationChange", lazyload);
+	        }
+	    }, 20);
+	  }
+	  
+	  document.addEventListener("scroll", lazyload);
+	  window.addEventListener("resize", lazyload);
+	  window.addEventListener("orientationChange", lazyload);
+	}); */
+  </script>
+	
+  
 <footer class="footer">
   <div class="content has-text-centered">
     <p>
@@ -364,5 +332,5 @@ background-repeat:no-repeat; background-position:left center; background-size:10
     </p>
   </div>
 </footer>
-</body>
+  </body>
 </html>

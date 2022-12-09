@@ -11,7 +11,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>장소 등록</title>
+    <title>장소 상세보기</title>
     
 
 
@@ -81,6 +81,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		<nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
 		  <div class="navbar-brand">
 		    <a class="navbar-item" id="logo2" href="/pro03/">
+		    <img src="/logo.png">
 		    </a>
 		
 		    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -95,7 +96,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		    	<!-- ajax로 메뉴 로딩하여 추가하기 -->
 				<div class="navbar-item has-dropdown is-hoverable">
 			    	<a href="/pro03/GetTourCateListCtrl.do?cate=A" class="navbar-link" >
-				      	명소관광
+				      	관광
 				    </a>
 				    <div class="navbar-dropdown cate" id="cate01">
 				    
@@ -103,7 +104,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable">
 			    	<a href="/pro03/GetTourCateListCtrl.do?cate=B" class="navbar-link cate">
-				      	체험관광
+				      	체험
 				    </a> 
 		   		    <div class="navbar-dropdown cate" id="cate02">
 				    
@@ -111,7 +112,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable">
 			    	<a href="/pro03/GetTourCateListCtrl.do?cate=C" class="navbar-link cate">
-				      	문화체험
+				      	문화
 				    </a>
 		   		    <div class="navbar-dropdown cate" id="cate03">
 				    
@@ -137,7 +138,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 					       	공지사항
 					     </a>
 					   
-					     <a class="navbar-item" href="/pro03/GetNoticeListCtrl2.do">
+					     <a class="navbar-item" href="/pro03/GetQnaListCtrl.do">
 					       	자주하는 질문
 					     </a>
 					</div> 
@@ -148,20 +149,15 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 			<div class="navbar-end" id="tnb">
 			  <div class="navbar-item">
 			  	
-			
 			 <div class="buttons">
-			   <a href="/pro03/UserInfoCtrl.do" class="button is-primary">
-			     <strong>Member Info</strong>
+			   <a href="/pro03/user/agree.jsp" class="button is-primary">
+			     <strong>Sign up</strong>
 			   </a>
-			   <a href="/pro03/UserLogoutCtrl.do" class="button is-light">
-			     LogOut
+			   <a href="/pro03/user/login.jsp" class="button is-light">
+			     Log in
 			   </a>
-				
-				   <a href="/pro03/AdminCtrl.do" class="button is-danger">
-				     <strong>Admin</strong>
-				   </a>
-				 
 			 </div>
+			
 			
 		  </div>
 		</div>
@@ -209,128 +205,85 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 	</script>
 	</div>
 </div>
-	<section class="section">
-	    <div class="columns is-full">
-			    
-
-
-
-
-
-<aside class="column is-2 has-background-primary-dark has-text-white" style="min-height:90vh" id="sidebar">
-	<div class="navbar-menu">
-		<div class="navbar">
-			<a href="/pro03/GetUserListCtrl.do" class="navbar-item">회원관리</a>
-			<a href="/pro03/tour/addTour.jsp" class="navbar-item">장소관리</a>
-			<a href="/pro03/GetTourListCtrl.do" class="navbar-item">장소목록</a>
-		</div>
-	</div>
-</aside>
-			<div class="column is-10">
-		      <h1 class="title">장소 등록</h1>
-				<form name="frm1" id="frm1" action="/pro03/AddTourCtrl.do" method="post" onsubmit="return tourCheck(this)">
-					<div class="field">
-					  	<label class="label">분류</label>
-					  	<div class="select">
-						  <select name="cate" id="cate" class="select" onchange="changeTourNo()" required>
-						  	<option value="">선택</option>
-						    <option value="A">관광</option>
-						    <option value="B">체험</option>
-						    <option value="C">행사</option>
-						    <option value="D">축제</option>
-						    <option value="E">숙박</option>
-						    <option value="F">음식</option>
-						    <option value="G">쇼핑</option>
-						    <option value="H">기타</option>
-						  </select>
-						  <input type="hidden" id="tourno" name="tourno" value="">
-						</div>
-					</div>
-					<div class="field">
-					  <label class="label">장소이름</label>
-					  <div class="control has-icons-left has-icons-right">
-					    <input class="input is-success" type="text" name="place" id="place" placeholder="장소 입력" required>
-					    <span class="icon is-small is-left">
-					      <i class="fas fa-user"></i>
-					    </span>
-					    <span class="icon is-small is-right">
-					      <i class="fas fa-check"></i>
-					    </span>
-					  </div>
-					  <p class="help is-success">장소명을 입력하세요</p>
-					</div>
+	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
+	  <ul style="float:right;">
+	    <li><a href="/pro03/">Home</a></li>
+	    <li><a href="/pro03/GetTourListCtrl.do">전체 장소</a></li>
+	    <li class="is-active"><a href="#" aria-current="page">
+ 			 
+			
+			
+			<span>체험</span>
+			
+			
+			
+			
+	    </a></li>
+	  </ul>
+	</nav>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">장소 상세보기</h1>
+      	<div id="con">
+      		<div class="tile is-ancestor columns" style="padding-bottom:40px;">
+      			
+				
+			      <div class="tile is-3" style="box-sizing:border-box;">
+			        <article class="tile is-child is-one-third notification" style="background-color:transparent; border:1px solid #eee; margin-right:10px!important;">
+			          <p class="title">체험1</p>
+			          <p class="subtitle">
+			 			 
+						
+						
+						<span>체험</span>
+						
+						
+						
+						
+			          </p>
+			          <figure class="image is-4by3">
+			            <img src="/pro03/upload/3.jpg" alt="체험1">
+			          </figure>
+			          <div class="content" style="margin:10px;">
+			          	<p class="item_com">체험1</p>
+			          </div>
+			          <a href="/pro03/GetTourDetailCtrl.do?no=17" class="button is-primary">자세히 보기</a>
+			        </article>
+			      </div>
+				
+			      <div class="tile is-3" style="box-sizing:border-box;">
+			        <article class="tile is-child is-one-third notification" style="background-color:transparent; border:1px solid #eee; margin-right:10px!important;">
+			          <p class="title">체험2</p>
+			          <p class="subtitle">
+			 			 
+						
+						
+						<span>체험</span>
+						
+						
+						
+						
+			          </p>
+			          <figure class="image is-4by3">
+			            <img src="/pro03/upload/4.jpg" alt="체험2">
+			          </figure>
+			          <div class="content" style="margin:10px;">
+			          	<p class="item_com">체험2</p>
+			          </div>
+			          <a href="/pro03/GetTourDetailCtrl.do?no=18" class="button is-primary">자세히 보기</a>
+			        </article>
+			      </div>
 					
-					<div class="field">
-					  <label class="label">장소 주요설명</label>
-					  <div class="control has-icons-left has-icons-right">
-					    <textarea class="textarea" name="comment1" id="comment1" cols="80" rows="8" maxlength="500" required></textarea>
-					  </div>
-					  <p class="help is-success">장소의 주요설명을 넣어 주시기 바랍니다.</p>
-					</div>
-
-					<div class="field">
-					  <label class="label">장소 상세설명</label>
-					  <div class="control has-icons-left has-icons-right">
-					    <textarea class="textarea" name="comment2" id="comment2" cols="80" rows="8" maxlength="500" required></textarea>
-					  </div>
-					  <p class="help is-success">장소의 상세설명을 넣어 주시기 바랍니다.</p>
-					</div>
-
-					<div class="field">
-					  <label class="label">이미지 추가</label>
-					  <div class="control">
-						<input type="hidden" name="pic_ck1" id="pic_ck1" value="no"/>
-						<button type="button" class="button is-link" onclick="imgUpload(1)">이미지 추가</button>
-					  </div>
-					</div>
-									
-					<div class="field is-grouped">
-					  <div class="control">
-					    <button type="submit" class="button is-link">장소 등록</button>
-					  </div>
-					  <div class="control">
-					    <button type="reset" class="button is-link is-light">취소</button>
-					  </div>
-					</div>
-				</form>
-				<script>
-				function imgUpload(no){
-					var tourno = document.frm1.tourno.value;
-					if(tourno==""){
-						alert("카테고리를 선택하지 않으셨습니다.");
-						return;
-					}
-					var win1 = window.open("imgUpload.jsp?no="+no+"&tourno="+tourno,"win","width=850, height=400");
-				}
-				function changeTourNo(){
-					var cate = document.frm1.cate.value; 
-					if(cate==""){
-						alert("분류를 선택하지 않으셨습니다. 기본값인 A 카테고리로 진행합니다.");
-						cate = "A";
-					}
-					//ajax로 현재 마지막 레코드의 번호를 불러옴
-					$.ajax({
-						url:"/pro03/NoLoadCtrl.do",
-						type:"post",
-						dataType:"json",
-						success:function(data){
-							console.log(data.no);
-							$("#tourno").val(cate + data.no);
-						}
-					});
-				}
-				</script>
-				<script>
-				function tourCheck(f){
-					if(f.pic_ck1.value!="yes"){
-						alert("이미지가 등록되어 있지 않습니다.");
-						return;
-					}
-				}
-				</script>
+		    	
+				
 			</div>
+      	</div>
+		<div class="buttons">
+		  <a href="/pro03/GetTourListCtrl.do" class="button is-info">전체 목록</a>
 		</div>
+    </div>
   </section>
+	
   
 <footer class="footer">
   <div class="content has-text-centered">

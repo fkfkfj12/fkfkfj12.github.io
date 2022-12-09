@@ -8,11 +8,11 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>로그인</title>
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>장소 상세보기</title>
+    
 
 
 
@@ -71,12 +71,9 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 #star_btn label { display:block; width:10px; height:36px; position:relative; float:left; }
 </style>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-<style>
-.title { padding-top:36px; padding-bottom:20px; }
-</style>
-</head>
-<body>
-
+  </head>
+  <body>
+  
 
  
 <div id="nav-group">
@@ -84,6 +81,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		<nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
 		  <div class="navbar-brand">
 		    <a class="navbar-item" id="logo2" href="/pro03/">
+		    <img src="/logo.png">
 		    </a>
 		
 		    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -98,7 +96,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		    	<!-- ajax로 메뉴 로딩하여 추가하기 -->
 				<div class="navbar-item has-dropdown is-hoverable">
 			    	<a href="/pro03/GetTourCateListCtrl.do?cate=A" class="navbar-link" >
-				      	명소관광
+				      	관광
 				    </a>
 				    <div class="navbar-dropdown cate" id="cate01">
 				    
@@ -106,7 +104,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable">
 			    	<a href="/pro03/GetTourCateListCtrl.do?cate=B" class="navbar-link cate">
-				      	체험관광
+				      	체험
 				    </a> 
 		   		    <div class="navbar-dropdown cate" id="cate02">
 				    
@@ -114,7 +112,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 				</div>
 				<div class="navbar-item has-dropdown is-hoverable">
 			    	<a href="/pro03/GetTourCateListCtrl.do?cate=C" class="navbar-link cate">
-				      	문화체험
+				      	문화
 				    </a>
 		   		    <div class="navbar-dropdown cate" id="cate03">
 				    
@@ -140,7 +138,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 					       	공지사항
 					     </a>
 					   
-					     <a class="navbar-item" href="/pro03/GetNoticeListCtrl2.do">
+					     <a class="navbar-item" href="/pro03/GetQnaListCtrl.do">
 					       	자주하는 질문
 					     </a>
 					</div> 
@@ -207,43 +205,86 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 	</script>
 	</div>
 </div>
+	<nav class="breadcrumb" aria-label="breadcrumbs" style="border-bottom:2px solid #ddd; padding-bottom:8px; min-height:48px; line-height:48px;">
+	  <ul style="float:right;">
+	    <li><a href="/pro03/">Home</a></li>
+	    <li><a href="/pro03/GetTourListCtrl.do">전체 장소</a></li>
+	    <li class="is-active"><a href="#" aria-current="page">
+ 			 
+			
+			<span>관광</span>
+			
+			
+			
+			
+			
+	    </a></li>
+	  </ul>
+	</nav>
   <section class="section">
     <div class="container">
-	<h2 class="title">로그인</h2>
-	<form name="frm1" id="frm1" action="/pro03/UserLoginCtrl.do" method="post" onsubmit="return joinCheck(this)">
-		<table class="table">
-			<tbody>
-				<tr>
-					<th>아이디</th>
-					<td>
-						<div class="form-row">
-							<input type="text" name="id" id="id" placeholder="아이디 입력" class="input" autofocus required />
-						</div>
-						<div>
-							
-								<p></p>
-							
-							
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<th>비밀번호</th>
-					<td><input type="password" name="pw" id="pw" placeholder="비밀번호 입력" class="input" required /></td>
-				</tr>
-			</tbody>
-		</table>
-		<div class="btn-group">
-			<input type="submit" name="submit-btn" class="button button-info" value="로그인">
-			<input type="reset" name="reset-btn" class="button button-info" value="취소">
-			<a href="/pro03/user/agree.jsp" class="button button-danger">회원가입</a>
+      <h1 class="title">장소 상세보기</h1>
+      	<div id="con">
+      		<div class="tile is-ancestor columns" style="padding-bottom:40px;">
+      			
+				
+			      <div class="tile is-3" style="box-sizing:border-box;">
+			        <article class="tile is-child is-one-third notification" style="background-color:transparent; border:1px solid #eee; margin-right:10px!important;">
+			          <p class="title">관광지1</p>
+			          <p class="subtitle">
+			 			 
+						
+						<span>관광</span>
+						
+						
+						
+						
+						
+			          </p>
+			          <figure class="image is-4by3">
+			            <img src="/pro03/upload/1.jpg" alt="관광지1">
+			          </figure>
+			          <div class="content" style="margin:10px;">
+			          	<p class="item_com">관광지 1</p>
+			          </div>
+			          <a href="/pro03/GetTourDetailCtrl.do?no=15" class="button is-primary">자세히 보기</a>
+			        </article>
+			      </div>
+				
+			      <div class="tile is-3" style="box-sizing:border-box;">
+			        <article class="tile is-child is-one-third notification" style="background-color:transparent; border:1px solid #eee; margin-right:10px!important;">
+			          <p class="title">관광지2</p>
+			          <p class="subtitle">
+			 			 
+						
+						<span>관광</span>
+						
+						
+						
+						
+						
+			          </p>
+			          <figure class="image is-4by3">
+			            <img src="/pro03/upload/2.jpg" alt="관광지2">
+			          </figure>
+			          <div class="content" style="margin:10px;">
+			          	<p class="item_com">관광지2</p>
+			          </div>
+			          <a href="/pro03/GetTourDetailCtrl.do?no=16" class="button is-primary">자세히 보기</a>
+			        </article>
+			      </div>
+					
+		    	
+				
+			</div>
+      	</div>
+		<div class="buttons">
+		  <a href="/pro03/GetTourListCtrl.do" class="button is-info">전체 목록</a>
 		</div>
-	</form>	
-	<script>
-	</script>
-</div>
-</section>
-
+    </div>
+  </section>
+	
+  
 <footer class="footer">
   <div class="content has-text-centered">
     <p>
@@ -253,5 +294,5 @@ background-repeat:no-repeat; background-position:left center; background-size:10
     </p>
   </div>
 </footer>
-</body>
+  </body>
 </html>
