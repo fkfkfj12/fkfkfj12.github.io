@@ -78,7 +78,9 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 </head>
 <body>
 
-	<div id="nav-group">
+
+ 
+    <div id="nav-group">
 		<div class="container">
  
 	<nav class="navbar" role="navigation" aria-label="main navigation" id="nav">
@@ -98,28 +100,28 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		  <div class="navbar-start" id="gnb">
 			  <!-- ajax로 메뉴 로딩하여 추가하기 -->
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListA.html" class="navbar-link">
+				  <a href="tourcatelistA.html" class="navbar-link">
 						관광
 				  </a>
-				  <div class="navbar-dropdown cate" id="cate01"><a href="TourCateListA2.html">관광지2</a><a href="TourCateListA1.html">관광지1</a></div>
+				  <div class="navbar-dropdown cate" id="cate01"><a href="tourcatelistA2.html">관광지2</a><a href="tourcatelistA1.html">관광지1</a></div>
 			  </div>
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListB.html" class="navbar-link cate">
+				  <a href="tourcatelistB.html" class="navbar-link cate">
 						체험
 				  </a> 
-					 <div class="navbar-dropdown cate" id="cate02"><a href="TourCateListB2.html">체험2</a><a href="TourCateListB1.html">체험1</a></div>
+					 <div class="navbar-dropdown cate" id="cate02"><a href="tourcatelistB2.html">체험2</a><a href="tourcatelistB1.html">체험1</a></div>
 			  </div>
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListC.html" class="navbar-link cate">
+				  <a href="tourcatelistC.html" class="navbar-link cate">
 						문화
 				  </a>
-					 <div class="navbar-dropdown cate" id="cate03"><a href="TourCateListC1.html">문화1</a></div>
+					 <div class="navbar-dropdown cate" id="cate03"><a href="tourcatelistC1.html">문화1</a></div>
 			  </div>
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListD.html" class="navbar-link cate">
+				  <a href="tourcatelistD.html" class="navbar-link cate">
 						음식
 				  </a>
-				  <div class="navbar-dropdown cate" id="cate04"><a href="TourCateListD1.html">음식1</a></div>
+				  <div class="navbar-dropdown cate" id="cate04"><a href="tourcatelistD1.html">음식1</a></div>
 			  </div>
 			  
 			  
@@ -133,7 +135,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 							 공지사항
 					   </a>
 					 
-					   <a class="navbar-item" href="QnaList.html">
+					   <a class="navbar-item" href="qnalist.html">
 							 자주하는 질문
 					   </a>
 				  </div> 
@@ -160,6 +162,48 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 	  </nav>
 	</div>
 </div>
+	<script>
+	$(document).ready(function(){
+		$.ajax({
+			url:"/pro03/MemuLoadCtrl.do",
+			type:"POST",
+			enctype:"UTF-8",
+			datatype:"json",
+			processData:false,
+			contentType:false, 
+			cache:false,
+			success:function(data){
+				$(".navbar-dropdown.cate").empty();
+				var trans = $.parseJSON(data);
+				console.log(trans);
+				$.each(trans, function(key, value){
+					if(key=="data"){
+						for(var i=0;i<value.length;i++){
+							if(value[i].cate=="A"){
+								$("#cate01").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="B"){
+								$("#cate02").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="C"){
+								$("#cate03").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="D"){
+								$("#cate04").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="E"){
+								$("#cate05").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="F"){
+								$("#cate06").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							} else if(value[i].cate=="G"){
+								$("#cate07").append("<a href='/pro03/GetTourDetailCtrl.do?no="+value[i].no+"'>"+value[i].place+"</a>");
+							}
+						}
+					}
+				});
+				
+			}
+		});
+	});
+	</script>
+	</div>
+</div>
 	<section class="section">
 	    <div class="columns is-full">
 			    
@@ -171,9 +215,9 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 <aside class="column is-2 has-background-primary-dark has-text-white" style="min-height:90vh" id="sidebar">
 	<div class="navbar-menu">
 		<div class="navbar">
-			<a href="/pro03/GetUserListCtrl.do" class="navbar-item">회원관리</a>
-			<a href="/pro03/tour/addTour.jsp" class="navbar-item">장소관리</a>
-			<a href="/pro03/GetTourListCtrl.do" class="navbar-item">장소목록</a>
+			<a href="userlist.html" class="navbar-item">회원관리</a>
+			<a href="tourwrite.html" class="navbar-item">장소관리</a>
+			<a href="tourlist.html" class="navbar-item">장소목록</a>
 		</div>
 	</div>
 </aside>
@@ -263,7 +307,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 					</table>
 					<div class="btn-group">
 						<input type="submit" name="submit-btn" class="button is-danger" value="회원정보변경">
-						<a href="/pro03" class="button is-info">취소</a>
+						<a href="index.html" class="button is-info">취소</a>
 					</div>
 				</form>	
 				<script>

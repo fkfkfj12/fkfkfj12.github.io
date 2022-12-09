@@ -94,28 +94,28 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 		  <div class="navbar-start" id="gnb">
 			  <!-- ajax로 메뉴 로딩하여 추가하기 -->
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListA.html" class="navbar-link">
+				  <a href="tourcatelistA.html" class="navbar-link">
 						관광
 				  </a>
-				  <div class="navbar-dropdown cate" id="cate01"><a href="TourCateListA2.html">관광지2</a><a href="TourCateListA1.html">관광지1</a></div>
+				  <div class="navbar-dropdown cate" id="cate01"><a href="tourcatelistA2.html">관광지2</a><a href="tourcatelistA1.html">관광지1</a></div>
 			  </div>
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListB.html" class="navbar-link cate">
+				  <a href="tourcatelistB.html" class="navbar-link cate">
 						체험
 				  </a> 
-					 <div class="navbar-dropdown cate" id="cate02"><a href="TourCateListB2.html">체험2</a><a href="TourCateListB1.html">체험1</a></div>
+					 <div class="navbar-dropdown cate" id="cate02"><a href="tourcatelistB2.html">체험2</a><a href="tourcatelistB1.html">체험1</a></div>
 			  </div>
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListC.html" class="navbar-link cate">
+				  <a href="tourcatelistC.html" class="navbar-link cate">
 						문화
 				  </a>
-					 <div class="navbar-dropdown cate" id="cate03"><a href="TourCateListC1.html">문화1</a></div>
+					 <div class="navbar-dropdown cate" id="cate03"><a href="tourcatelistC1.html">문화1</a></div>
 			  </div>
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListD.html" class="navbar-link cate">
+				  <a href="tourcatelistD.html" class="navbar-link cate">
 						음식
 				  </a>
-				  <div class="navbar-dropdown cate" id="cate04"><a href="TourCateListD1.html">음식1</a></div>
+				  <div class="navbar-dropdown cate" id="cate04"><a href="tourcatelistD1.html">음식1</a></div>
 			  </div>
 			  
 			  
@@ -129,7 +129,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 							 공지사항
 					   </a>
 					 
-					   <a class="navbar-item" href="QnaList.html">
+					   <a class="navbar-item" href="qnalist.html">
 							 자주하는 질문
 					   </a>
 				  </div> 
@@ -156,6 +156,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 	  </nav>
 	</div>
 </div>
+	
 	<section class="section">
 	    <div class="columns is-full">
 			    
@@ -167,9 +168,9 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 <aside class="column is-2 has-background-primary-dark has-text-white" style="min-height:90vh" id="sidebar">
 	<div class="navbar-menu">
 		<div class="navbar">
-			<a href="/pro03/GetUserListCtrl.do" class="navbar-item">회원관리</a>
-			<a href="/pro03/tour/addTour.jsp" class="navbar-item">장소관리</a>
-			<a href="/pro03/GetTourListCtrl.do" class="navbar-item">장소목록</a>
+			<a href="userlist.html" class="navbar-item">회원관리</a>
+			<a href="tourwrite.html" class="navbar-item">장소관리</a>
+			<a href="tourlist.html" class="navbar-item">장소목록</a>
 		</div>
 	</div>
 </aside>
@@ -183,12 +184,9 @@ background-repeat:no-repeat; background-position:left center; background-size:10
 						  	<option value="">선택</option>
 						    <option value="A">관광</option>
 						    <option value="B">체험</option>
-						    <option value="C">행사</option>
-						    <option value="D">축제</option>
-						    <option value="E">숙박</option>
-						    <option value="F">음식</option>
-						    <option value="G">쇼핑</option>
-						    <option value="H">기타</option>
+						    <option value="C">문화</option>
+						    <option value="D">음식</option>
+						    
 						  </select>
 						  <input type="hidden" id="tourno" name="tourno" value="">
 						</div>

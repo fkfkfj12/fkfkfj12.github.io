@@ -78,6 +78,7 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 </head>
 <body>
 
+
 	<div id="nav-group">
 		<div class="container">
  
@@ -98,28 +99,28 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 		  <div class="navbar-start" id="gnb">
 			  <!-- ajax로 메뉴 로딩하여 추가하기 -->
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListA.html" class="navbar-link">
+				  <a href="tourcatelistA.html" class="navbar-link">
 						관광
 				  </a>
-				  <div class="navbar-dropdown cate" id="cate01"><a href="TourCateListA2.html">관광지2</a><a href="TourCateListA1.html">관광지1</a></div>
+				  <div class="navbar-dropdown cate" id="cate01"><a href="tourcatelistA2.html">관광지2</a><a href="tourcatelistA1.html">관광지1</a></div>
 			  </div>
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListB.html" class="navbar-link cate">
+				  <a href="tourcatelistB.html" class="navbar-link cate">
 						체험
 				  </a> 
-					 <div class="navbar-dropdown cate" id="cate02"><a href="TourCateListB2.html">체험2</a><a href="TourCateListB1.html">체험1</a></div>
+					 <div class="navbar-dropdown cate" id="cate02"><a href="tourcatelistB2.html">체험2</a><a href="tourcatelistB1.html">체험1</a></div>
 			  </div>
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListC.html" class="navbar-link cate">
+				  <a href="tourcatelistC.html" class="navbar-link cate">
 						문화
 				  </a>
-					 <div class="navbar-dropdown cate" id="cate03"><a href="TourCateListC1.html">문화1</a></div>
+					 <div class="navbar-dropdown cate" id="cate03"><a href="tourcatelistC1.html">문화1</a></div>
 			  </div>
 			  <div class="navbar-item has-dropdown is-hoverable">
-				  <a href="TourCateListD.html" class="navbar-link cate">
+				  <a href="tourcatelistD.html" class="navbar-link cate">
 						음식
 				  </a>
-				  <div class="navbar-dropdown cate" id="cate04"><a href="TourCateListD1.html">음식1</a></div>
+				  <div class="navbar-dropdown cate" id="cate04"><a href="tourcatelistD1.html">음식1</a></div>
 			  </div>
 			  
 			  
@@ -133,7 +134,7 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 							 공지사항
 					   </a>
 					 
-					   <a class="navbar-item" href="QnaList.html">
+					   <a class="navbar-item" href="qnalist.html">
 							 자주하는 질문
 					   </a>
 				  </div> 
@@ -160,6 +161,7 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 	  </nav>
 	</div>
 </div>
+	
 <div class="content container" id="content">
 	<h2 class="title">회원 약관 동의</h2>
 	<article class="agree_fr">
@@ -1062,7 +1064,7 @@ padding: 24px; border:2px solid #eee; height:600px; overflow-y:auto; }
 	var in_btn1 = document.getElementById("in_btn1");
 	in_btn1.addEventListener("click", function(){
 		if(ck_item1.checked && ck_item2.checked){
-			location.href = "signUp.html";
+			location.href = "signup.html";
 		} else {
 			alert("약관 및 개인정보처리 방침에 동의하지 않으셨습니다.");
 			return;
