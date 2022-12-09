@@ -239,36 +239,7 @@ background-repeat:no-repeat; background-position:left center; background-size:10
     </div>
   </section>
   <script>
-  //image Lazy Loading : 실제로 사용자 화면에 보여질 필요가 있을 때까지 이미지 로딩을 지연하는 것으로 네트워크 대역폭을 줄이는 방법
-  /* document.addEventListener("DOMContentLoaded", function() {
-	  var lazyloadImages = document.querySelectorAll("img.lazy");    
-	  var lazyloadThrottleTimeout;
-	  
-	  function lazyload () {
-	    if(lazyloadThrottleTimeout) {
-	      clearTimeout(lazyloadThrottleTimeout);
-	    }    
-	    
-	    lazyloadThrottleTimeout = setTimeout(function() {
-	        var scrollTop = window.pageYOffset;
-	        lazyloadImages.forEach(function(img) {
-	            if(img.offsetTop < (window.innerHeight + scrollTop)) {
-	              img.src = img.dataset.src;
-	              img.classList.remove('lazy');
-	            }
-	        });
-	        if(lazyloadImages.length == 0) { 
-	          document.removeEventListener("scroll", lazyload);
-	          window.removeEventListener("resize", lazyload);
-	          window.removeEventListener("orientationChange", lazyload);
-	        }
-	    }, 20);
-	  }
-	  
-	  document.addEventListener("scroll", lazyload);
-	  window.addEventListener("resize", lazyload);
-	  window.addEventListener("orientationChange", lazyload);
-	}); */
+  
   </script>
 	
   
