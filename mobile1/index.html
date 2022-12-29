@@ -150,6 +150,7 @@
                 <li><a href="#page2" data-transition="slidefade">엘더스크롤</a></li>
                 <li><a href="#page3" data-transition="slidefade">폴아웃</a></li>
                 <li><a href="#page4" data-transition="slidefade">스타필드</a></li>
+                <li><a href="#page5" data-transition="slidefade">로그인</a></li>
             </ul>
         </header>
         <div class="ui-content" data-role="content">
@@ -182,10 +183,10 @@
            
                 <ul class="ui-list" data-role="listview">
                     <li><a href="#page0" data-transition="slidefade">메인메뉴</a></li>
-                    <li><a href="#page1" data-transition="slidefade">게임선택</a></li>
                     <li><a href="#page2" data-transition="slidefade">엘더스크롤</a></li>
                     <li><a href="#page3" data-transition="slidefade">폴아웃</a></li>
                     <li><a href="#page4" data-transition="slidefade">스타필드</a></li>
+                    <li><a href="#page5" data-transition="slidefade">로그인</a></li>
                 </ul>
         </header>
         <div data-role="content" role="sub" class="ui-content">
@@ -220,10 +221,10 @@
             <h1 class="ui-title" role="heading">엘더스크롤</h1>
             <ul class="ui-list" data-role="listview">
                 <li><a href="#page0" data-transition="slidefade">메인메뉴</a></li>
-                <li><a href="#page1" data-transition="slidefade">게임선택</a></li>
-                <li><a href="#page2" data-transition="slidefade">엘더스크롤</a></li>
-                <li><a href="#page3" data-transition="slidefade">폴아웃</a></li>
-                <li><a href="#page4" data-transition="slidefade">스타필드</a></li>
+                    <li><a href="#page1" data-transition="slidefade">게임선택</a></li>
+                    <li><a href="#page3" data-transition="slidefade">폴아웃</a></li>
+                    <li><a href="#page4" data-transition="slidefade">스타필드</a></li>
+                    <li><a href="#page5" data-transition="slidefade">로그인</a></li>
             </ul>
         </header>
         <div data-role="content" role="sub" class="ui-content">
@@ -304,10 +305,10 @@
             <h1 class="ui-title" role="heading">폴아웃</h1>
             <ul class="ui-list" data-role="listview">
                 <li><a href="#page0" data-transition="slidefade">메인메뉴</a></li>
-                <li><a href="#page1" data-transition="slidefade">게임선택</a></li>
-                <li><a href="#page2" data-transition="slidefade">엘더스크롤</a></li>
-                <li><a href="#page3" data-transition="slidefade">폴아웃</a></li>
-                <li><a href="#page4" data-transition="slidefade">스타필드</a></li>
+                    <li><a href="#page1" data-transition="slidefade">게임선택</a></li>
+                    <li><a href="#page2" data-transition="slidefade">엘더스크롤</a></li>
+                    <li><a href="#page4" data-transition="slidefade">스타필드</a></li>
+                    <li><a href="#page5" data-transition="slidefade">로그인</a></li>
             </ul>
         </header>
         <div data-role="content" role="sub" class="ui-content">
@@ -355,10 +356,10 @@
             <h1 class="ui-title" role="heading">스타필드</h1>
             <ul class="ui-list" data-role="listview">
                 <li><a href="#page0" data-transition="slidefade">메인메뉴</a></li>
-                <li><a href="#page1" data-transition="slidefade">게임선택</a></li>
-                <li><a href="#page2" data-transition="slidefade">엘더스크롤</a></li>
-                <li><a href="#page3" data-transition="slidefade">폴아웃</a></li>
-                <li><a href="#page4" data-transition="slidefade">스타필드</a></li>
+                    <li><a href="#page1" data-transition="slidefade">게임선택</a></li>
+                    <li><a href="#page2" data-transition="slidefade">엘더스크롤</a></li>
+                    <li><a href="#page3" data-transition="slidefade">폴아웃</a></li>
+                    <li><a href="#page5" data-transition="slidefade">로그인</a></li>
             </ul>
         </header>
         <div data-role="content" role="sub" class="ui-content">
@@ -377,6 +378,64 @@
             <h3>베네스다</h3>
         </footer>
     </div>
+
+    <div id="page5" data-role="page" class="ui-page ui-page-theme-a">
+        <header data-role="header" class="ui-header" data-theme="b">
+            <a href="#page1" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back To Page</a>
+            <h1 class="ui-title" role="heading">로그인</h1>
+            <ul class="ui-list" data-role="listview">
+                <li><a href="#page0" data-transition="slidefade">메인메뉴</a></li>
+                <li><a href="#page1" data-transition="slidefade">게임선택</a></li>
+                <li><a href="#page2" data-transition="slidefade">엘더스크롤</a></li>
+                <li><a href="#page3" data-transition="slidefade">폴아웃</a></li>
+                <li><a href="#page4" data-transition="slidefade">스타필드</a></li>
+            </ul>
+        </header>
+        <div data-role="content" role="sub" class="ui-content">
+            <h2>로그인</h2>
+            <label> 아이디 : <input id="id" type="text"></label>
+            <label> 비밀번호 : <input id="pw" type="text"></label>
+            <a href="#page6"><input type="button" value="회원가입"></a>
+            <input type="button" value="로그인" onclick="login();">
+
+            
+        </div>
+        <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+            <a href="#page0" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">메인화면</a>
+            <h3>베네스다</h3>
+        </footer>
+    </div>
+
+    <div id="page6" data-role="page" class="ui-page ui-page-theme-a">
+        <header data-role="header" class="ui-header" data-theme="b">
+            <a href="#page1" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">Back To Page</a>
+            <h1 class="ui-title" role="heading">로그인</h1>
+            <ul class="ui-list" data-role="listview">
+                <li><a href="#page0" data-transition="slidefade">메인메뉴</a></li>
+                <li><a href="#page1" data-transition="slidefade">게임선택</a></li>
+                <li><a href="#page2" data-transition="slidefade">엘더스크롤</a></li>
+                <li><a href="#page3" data-transition="slidefade">폴아웃</a></li>
+                <li><a href="#page4" data-transition="slidefade">스타필드</a></li>
+            </ul>
+        </header>
+        <script type="text/javascript" src="script.js"></script>
+        <div data-role="content" role="sub" class="ui-content">
+            <h2>회원가입</h2>
+            <label> 아이디 : <input id="id" type="text"></label>
+            <label> 비밀번호 : <input id="pw" type="text"></label>
+            <label> 비밀번호 확인 : <input id="r_pw" type="text"></label>
+            <input type="button" value="뒤로가기" onclick="back();">
+            <input type="button" value="계정생성" onclick="create_id();">
+
+            
+            
+        </div>
+        <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
+            <a href="#page0" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">메인화면</a>
+            <h3>베네스다</h3>
+        </footer>
+    </div>
+
 
 
 
