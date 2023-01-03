@@ -41,14 +41,14 @@
     <meta property="og:url" content="https://fkfkfj12.github.io/mobile01">
     <meta property="og:title" content="베네스다">
     <meta property="og:site_name" content="베네스다">
-    <meta property="og:image" content="">
+    <meta property="og:image" content="222.jpg">
     <meta property="og:image:width" content="1000">
     <meta property="og:image:height" content="400">
     <meta property="og:locale" content="ko_KR">
     <meta name="twitter:card" content="video">
     <meta name="twitter:title" content="베네스다">
     <meta name="twitter:description" content="베네스다는 게임개발 스튜디오 입니다">
-    <meta name="twitter:image" content="">
+    <meta name="twitter:image" content="222.jpg">
 
     <!-- 해상도 및 브라우저와 기기별 앱 아이콘 및 바로가기 아이콘 설정 --> 
     <!-- <link rel="shortcut icon" href="favicon.ico">  --> 
@@ -386,11 +386,38 @@
             <p>별무리는 수상에 빛나는 The Elder Scrolls V: Skyrim과 Fallout 4의 제작자인 Bethesda Game Studios가 25년 만에 처음으로 선보이는 새로운 세계입니다.<br><br>
                  별들 사이에서 펼쳐지는 이 차세대 롤플레잉 게임에서 원하는 캐릭터를 만들고 자유롭게 탐험하세요.<br><br>
                  차세대 기술의 힘을 활용하고 새로운 Creation Engine 2를 기반으로 제작된 별무리는 인류의 가장 큰 미스터리의 답을 찾기 위한 우주로의 여정으로 여러분을 안내합니다.<br><br></p>
-                 <iframe width="100%" height="300rm" src="https://www.youtube.com/embed/pYqyVpCV-3c" title="Starfield: Official Teaser Trailer" frameborder="0" 
-                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 
+                 
            
             
         </div>
+        <div class="player" ">
+            <video class="player_video viewer" src="Starfield- Official Teaser Trailer.mp4" id="target_vdo" style="width: 100%;"></video>
+       
+            <div class="player_controls">
+              <div class="progress">
+               <div class="progress_filled"></div>
+              </div>
+              <button class="player_button toggle" title="Toggle Play">►</button>
+              <input type="range" name="volume" class="player_slider" min="0" max="1" step="0.05" value="1">
+              <input type="range" name="playbackRate" class="player_slider" min="0.5" max="2" step="0.1" value="1">
+              <button data-skip="-10" class="player_button">« 10s</button>
+              <button data-skip="25" class="player_button">25s »</button>
+            </div>
+            <div class="player_list">
+               <form>
+                   <div>
+                   <input type="file" id="directory_upload" webkitdirectory>
+                   </div>
+                   <div class="file_list" id="file_list">
+                   <p></p>
+                   </div>
+               </form>
+               <script src='directory_upload.js' ></script>
+            </div>
+          </div>
+       
+         <script src="custom_video.js"></script>
         <footer data-role="footer" class="ui-footer" data-theme="b" data-position="fixed">
             <a href="#page0" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left" data-role="button" role="button">메인화면</a>
             <h3>베네스다</h3>
